@@ -4,12 +4,33 @@ import com.sparta.memo.dto.MemoRequestDto;
 import com.sparta.memo.dto.MemoResponseDto;
 import com.sparta.memo.entity.Memo;
 import com.sparta.memo.repository.MemoRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MemoService {
+    // Bean class에만 autowired를 사용할 수 있다
+
     private final MemoRepository memoRepository;
 
+    // lombok 사용해서 주입하는 방법
+    // MemoService에 @RequiredArgsConstructor를 달아 사용 가능
+    // private final MemoRepository memoRepository; -> final 달면 자동으로 됨
+
+    /*// 필드 주입
+    // 추천은 안 함
+    @Autowired
+    private final MemoRepository memoRepository;*/
+
+    /*// 메소드 주입
+    @Autowired
+    public void setDi(MemoRepository memoRepository) {
+        this.memoRepository = memoRepository;
+    }*/
+
+    // 생성자 주입 -> 주로 사용
+    // 생성자가 1개일 때는 @Autowired 생략 가능
     public MemoService(MemoRepository memoRepository) {
         this.memoRepository = memoRepository;
     }
