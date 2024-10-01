@@ -21,7 +21,6 @@ public class MemoRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     public Memo save(Memo memo) {
         // DB 저장
         KeyHolder keyHolder = new GeneratedKeyHolder(); // 기본 키를 반환받기 위한 객체
