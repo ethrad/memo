@@ -51,7 +51,7 @@ public class MemoService {
 
     public List<MemoResponseDto> getMemos() {
         // DB 조회
-        return memoRepository.findAll().stream().map(MemoResponseDto::new).toList();
+        return memoRepository.findAllByOrderByModifiedAtDesc().stream().map(MemoResponseDto::new).toList();
     }
 
     @Transactional // 변경 감지 하려면 있어야 함
